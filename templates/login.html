@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="box">
+    <div class="login-box">
+       <div class="card border-success mb-5 mt-4" style="max-width:500px">
+           <div class="card-header bg-success border-success"><h4 class="text-light text-center">Login Here !</h4></div>
+          <div class="card-body">
+              <form method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                  </div>
+                  <div class="form-group form-check pl-0">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="text-danger">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="w-100 text-center">
+                      <button type="submit" class="btn btn-success">Login</button>
+                  </div>
+                    <div class="w-100 mt-3" style="display:flex;justify-content:space-between">
+                        <a href="/" class="text-primary">New User ?</a>
+                  </div>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

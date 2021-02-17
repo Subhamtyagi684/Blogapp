@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block css %}
+    <style>
+        .errorlist {padding-left: 15px;color: firebrick;}
+        input{width:100%;padding:8px}
+    </style>
+{% endblock css %}
+
+{% block body %}
+{% if request.user.is_authenticated %}
+
+
+  <!-- Main Content -->
+<h1 class='text-center mt-5'>ALL BLOGS</h1> 
+<hr class='bg-dark'/>
+<section class='mt-5 mb-5'>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+      
+        {% for blog in blogs %}
+        <div class="post-preview">
+            <h2 class="post-title text-primary">
+                    {{blog.title}}
+                </h2>
+            <h3 class="post-subtitle">
+              {{blog.blog}}
+            </h3>
+          
+          <p class="post-meta" >Posted by {{request.user.email}} on {{blog.created_on |timezone:"Asia/Kolkata"}}</p>
+        </div>
+        <hr class='bg-info'/>
+        {% endfor %}
+        
+        <!-- Pager -->
+      </div>
+    </div>
+  </div>
+
+  <hr>
+</section>
+
+
+{% else %}
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class="jumbotron bg-light text-dark p-3" >
+    
+    <form method="post" novalidate class='w-100'>
+        {% csrf_token %}
+        <table cellpadding="10" class='w-100'>
+            <tbody>
+                <tr>
+                    <th colspan="2">
+                        <center>
+                            <h3 class="p-0 m-0">Sign Up Here !</h3>
+                        </center>
+                    </th>
+                </tr>
+                {% for i in form %}
+                    <tr>
+                        <th>
+                            {{i.label_tag}}
+                        </th>
+                        <td>
+                            {{i}}
+                            {% if i.errors %}
+                                {{i.errors}}
+                            {% endif %}
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th colspan="2" class="text-center">
+                        <button class="btn btn-primary"  type="submit">Submit</button>
+                        <a href='/'><button class="ml-2 btn btn-warning" type="button">Reset</button></a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+</div>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+{% endblock body %}

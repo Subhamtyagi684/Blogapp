@@ -1,0 +1,4 @@
+.pizza-img {position:relative}
+.jumbotron {position:absolute; top:150px; max-width:500px;left:20px}
+.errorlist {margin:0;padding-left:18px;color:red;}
+.messages {list-style:none}

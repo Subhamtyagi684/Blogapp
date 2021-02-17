@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block css %}
+    <style>
+        .errorlist {padding-left: 15px;color: firebrick;}
+        input{width:100%;padding:8px}
+    </style>
+{% endblock css %}
+
+{% block body %}
+{% if request.user.is_authenticated %}
+
+
+  <!-- Main Content -->
+<h1 class='text-center mt-5'>MY BLOGS</h1> 
+<hr class='bg-dark'/>
+<section class='mt-5 mb-5'>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% if blogs %}
+                
+        {% for blog in blogs %}
+        <div class="post-preview">
+            <a href='/updateblog/{{blog.id}}'>
+                <h2 class="post-title">
+                    {{blog.title}}
+                </h2>
+            </a>
+            <h3 class="post-subtitle">
+              {{blog.blog}}
+            </h3>
+          
+          <p class="post-meta" >Posted by {{request.user.email}} on {{blog.created_on |timezone:"Asia/Kolkata"}}</p>
+          <div class='justify-content-right'>
+                <a href='/updateblog/{{blog.id}}'><button type="button" class="btn btn-success btn-sm">Update</button></a>
+                <a href='/deleteblog/{{blog.id}}'><button type="button" class="btn btn-danger btn-sm ml-3">Delete</button></a>
+          </div>
+        </div>
+        <hr class='bg-info'/>
+        
+        {% endfor %}
+        {% else %}
+        <center><h5> Sorry, No blogs found. <a href='/createblog/'>Click here </a> to create your first blog.</h5>
+        {% endif %}
+        <!-- Pager -->
+      </div>
+    </div>
+  </div>
+
+  <hr>
+</section>
+
+{% endif %}
+
+
+
+
+
+{% endblock body %}
