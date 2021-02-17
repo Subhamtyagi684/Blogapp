@@ -1,4 +1,4 @@
-It is a django blog app. Here you can create, modify and delete the blogs very easily. But to view and create the blogs , you have to register with us. It is not mandatory to provide any personal email or mobile. You can provide any random email or mobile to register . Once you have register with this app, you can create or delete your own blogs and view all the blogs.
+It is a django blog app. Here you can create, modify and delete the blogs very easily. But to view and create the blogs , you have to first strictly register with us. It is not mandatory to provide any personal email or mobile. You can provide any random email or mobile to register . Once you have register with this app, you can create or delete your own blogs and view all the blogs.
 
 Steps to use this app:
 
