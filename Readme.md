@@ -16,7 +16,7 @@ Steps to use this app:
 
 -> create a database file by -> touch db.sqlite3
 
--> Once it is created, create a .env file -> touch .env
+-> Once the database file is created, create a .env file -> touch .env
 
 -> inside .env file , provide any random SECRET_KEY, FOR e.x. -> SECRET_KEY = 'hello_world'
 
