@@ -6,7 +6,7 @@ Steps to use this app:
 
 -> After installing git, open git bash.
 
--> git clone 
+-> git clone https://github.com/Subhamtyagi684/blogapp.git
 
 -> Now create a virtual environment with this code ->    python -m venv venv
 
