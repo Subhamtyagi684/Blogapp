@@ -15,7 +15,7 @@ class RegisterationForm(forms.ModelForm):
         password2 = self.cleaned_data.get('confirm_password')
         if password1 and password2 and password1 != password2:
             raise ValidationError("Passwords don't match")
-        return confirm_password
+        return password2
 
 
 class BlogForm(forms.Form):
