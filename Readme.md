@@ -36,7 +36,7 @@ Steps to use this app:
 
 -> After submitting, you will see a message 'User created successfully'.
 
--> Now you can login in the app using email and password to this app.
+-> Now you can login in the app from the login button in the navbar using email and password to this app.
 
 -> Once logged in, you can create your blog and  view all the blogs.
 
