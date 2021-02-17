@@ -8,7 +8,7 @@ Steps to use this app:
 
 -> git clone https://github.com/Subhamtyagi684/blogapp.git
 
--> Now create a virtual environment with this code ->    python -m venv venv
+-> Now create a virtual environment with the code ->    python -m venv venv
 
 -> Once venv created successfully, activate it by -> source venv/Scripts/activate
 
