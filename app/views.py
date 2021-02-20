@@ -44,10 +44,10 @@ def custlogin(request):
         user = authenticate(email=email,password=password)
         if user is not None:
             login(request,user)
-            messages.add_message(request,messages.SUCCESS,'You are logged in successfully')
+            messages.add_message(request,messages.SUCCESS,'You are logged in successfully',extra_tags='alert alert-success')
             return redirect('home')
         else:
-            messages.add_message(request, messages.ERROR,'Email or password is not correct')
+            messages.add_message(request, messages.ERROR,'Email or password is not correct',extra_tags='alert alert-danger')
     return render(request,'login.html')
 
 
@@ -106,9 +106,9 @@ def deleteblog(request,pk):
     try:
         blog = Blog.objects.get(id=pk)
         blog.delete()
-        messages.add_message(request,messages.SUCCESS,'Blog deleted successfully')
+        messages.add_message(request,messages.SUCCESS,'Blog deleted successfully',extra_tags='alert alert-success')
     except:
-        messages.add_message(request,messages.ERROR,'Blog not found')
+        messages.add_message(request,messages.ERROR,'Blog not found',extra_tags='alert alert-danger')
     return redirect('my_blogs')
 
 
@@ -119,7 +119,7 @@ def myblogs(request):
         userobj = Customer.objects.get(id=user_id)
         blogobj = Blog.objects.filter(author=userobj)
     except:
-        messages.add_message(request,messages.ERROR,'User not found')
+        messages.add_message(request,messages.ERROR,'User not found',extra_tags='alert alert-danger')
         return redirect('login')
     return render(request,'myblog.html',{'blogs':blogobj})  
 
